@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bag5"
+    android:backgroundTint="#B8000000"
+    android:backgroundTintMode="src_over"
+    tools:context=".admin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal"> <!-- تم إضافة خاصية gravity لتوسيط المحتوى -->
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:layout_marginBottom="11dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text"
+            android:text=""
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edtPrice"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginBottom="11dp"
+            android:ems="10"
+            android:hint="Price"
+            android:inputType="text"
+            android:text=""
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edtCategory"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginBottom="11dp"
+            android:ems="10"
+            android:hint="Category"
+            android:inputType="text"
+            android:text=""
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/edtQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginBottom="11dp"
+            android:ems="10"
+            android:hint="Quantity"
+            android:inputType="number"
+            android:text=""
+            android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="159dp"
+            android:layout_height="142dp"
+            android:layout_marginBottom="15dp"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <!-- تم توسيط الأزرار هنا باستخدام layout_gravity -->
+        <!-- توسيط الزر -->
+
+        <!-- توسيط الزر -->
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="210dp"
+            android:layout_height="68dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:text="Add"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnList"
+            android:layout_width="211dp"
+            android:layout_height="68dp"
+            android:layout_gravity="center_horizontal"
+            android:text="List of Products"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/btnGenerateReport"
+            android:layout_width="210dp"
+            android:layout_height="68dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Report"
+            app:cornerRadius="10dp" /> <!-- توسيط الزر -->
+
+    </LinearLayout>
+</ScrollView>

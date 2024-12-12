@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bags Shop</string>
+    <string name="delete_icon">delete</string>
+    <string name="edit_icon">edit</string>
+</resources>
