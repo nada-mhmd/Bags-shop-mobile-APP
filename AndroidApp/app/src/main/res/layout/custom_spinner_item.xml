@@ -1,0 +1,23 @@
+<!-- custom_spinner_item.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/spinner_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/baseline_arrow_circle_down_24" />
+
+    <!-- Text -->
+    <TextView
+        android:id="@+id/spinner_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3E3E3E"
+        android:textSize="16sp" />
+</LinearLayout>

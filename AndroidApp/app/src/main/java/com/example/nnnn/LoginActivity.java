@@ -9,8 +9,6 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 import com.example.nnnn.databinding.ActivityLoginBinding;
 
-import javax.mail.MessagingException;
-
 public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
     DatabaseHelper databaseHelper;
@@ -26,15 +24,15 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize rememberMeCheckbox
         rememberMeCheckbox = findViewById(R.id.rememberMeCheckbox);
 
-        // Check if user credentials are saved
+        // Check if user is already logged in
         SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
-        String savedEmail = sharedPreferences.getString("email", "");
-        String savedPassword = sharedPreferences.getString("password", "");
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
-        if (!savedEmail.isEmpty() && !savedPassword.isEmpty()) {
-            binding.loginEmail.setText(savedEmail);
-            binding.loginPassword.setText(savedPassword);
-            rememberMeCheckbox.setChecked(true);
+        if (isLoggedIn) {
+            String savedEmail = sharedPreferences.getString("email", "");
+            Toast.makeText(this, "Welcome back " + savedEmail, Toast.LENGTH_SHORT).show();
+            navigateToNextActivity(sharedPreferences.getString("userType", ""));
+            finish(); // Close LoginActivity
         }
 
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
@@ -48,24 +46,17 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     if (email.equals("admin") && password.equals("admin")) {
                         // Navigate to AdminActivity
+                        saveLoginState(sharedPreferences, email, "admin");
                         Toast.makeText(LoginActivity.this, "Login Successfully as admin!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-                        startActivity(intent);
+                        navigateToNextActivity("admin");
                     } else {
                         Boolean checkCredentials = databaseHelper.checkEmailPassword(email, password);
                         if (checkCredentials) {
-                            // If Remember Me is checked, save credentials
-                            if (rememberMeCheckbox.isChecked()) {
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("email", email);
-                                editor.putString("password", password);
-                                editor.apply();
-                            }
-
+                            saveLoginState(sharedPreferences, email, "user");
                             Toast.makeText(LoginActivity.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, User.class);
-                            startActivity(intent);
-                        } else {
+                            navigateToNextActivity("user");
+                        }
+                        else {
                             Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -74,24 +65,34 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         // Redirect to signup activity
-        binding.signupRedirectText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-                startActivity(intent);
-            }
+        binding.signupRedirectText.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+            startActivity(intent);
         });
 
         // Handle "Forgot Password" action
-        binding.forgotPasswordText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-                startActivity(intent);
-            }
+        binding.forgotPasswordText.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
         });
+    }
 
+    private void saveLoginState(SharedPreferences sharedPreferences, String email, String userType) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLoggedIn", true);
+        editor.putString("email", email);
+        editor.putString("userType", userType);
+        editor.apply();
+    }
 
-
+    private void navigateToNextActivity(String userType) {
+        Intent intent;
+        if ("admin".equals(userType)) {
+            intent = new Intent(LoginActivity.this, AdminActivity.class);
+        } else {
+            intent = new Intent(LoginActivity.this, User.class);
+        }
+        startActivity(intent);
+        finish();
     }
 }

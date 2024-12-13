@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bag2"
-    android:backgroundTint="#91000000"
+    android:background="@drawable/bag9"
+    android:backgroundTint="#27000000"
     android:backgroundTintMode="src_over"
     tools:context=".SignupActivity">
 
@@ -18,7 +18,7 @@
         <!-- Spacer for adjusting layout positioning -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="136dp" />
+            android:layout_height="75dp" />
 
         <!-- Email input -->
         <EditText
@@ -27,6 +27,8 @@
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/lavender_border"
+            android:backgroundTint="#27000000"
+            android:backgroundTintMode="src_over"
             android:drawableLeft="@drawable/baseline_email_24"
             android:drawablePadding="16dp"
             android:hint="Email"
@@ -35,7 +37,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
-            android:textColor="#3E3E3E" />
+            android:textColor="#FFFFFF" />
 
         <!-- Password input -->
         <EditText
@@ -44,6 +46,9 @@
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/lavender_border"
+            android:backgroundTint="#27000000"
+
+            android:backgroundTintMode="src_over"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="16dp"
             android:hint="Password"
@@ -52,7 +57,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
-            android:textColor="#3E3E3E" />
+            android:textColor="#FFFFFF" />
 
         <!-- Confirm Password input -->
         <EditText
@@ -61,6 +66,9 @@
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/lavender_border"
+            android:backgroundTint="#27000000"
+
+            android:backgroundTintMode="src_over"
             android:drawableLeft="@drawable/baseline_password_24"
             android:drawablePadding="16dp"
             android:hint="Confirm Password"
@@ -69,7 +77,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
-            android:textColor="#3E3E3E" />
+            android:textColor="#FFFFFF" />
 
         <!-- Birthdate input with icon -->
         <EditText
@@ -78,6 +86,9 @@
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/lavender_border"
+            android:backgroundTint="#27000000"
+            android:backgroundTintMode="src_over"
+
             android:clickable="true"
             android:drawableLeft="@drawable/baseline_date_range_24"
             android:drawablePadding="16dp"
@@ -88,7 +99,44 @@
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
-            android:textColor="#3E3E3E" />
+            android:textColor="#FFFFFF" />
+        <!-- Spinner لاختيار سؤال الأمان -->
+        <Spinner
+            android:id="@+id/signup_security_question"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/lavender_border"
+            android:drawableLeft="@drawable/baseline_arrow_circle_down_24"
+
+            android:entries="@array/security_questions"
+            android:foregroundTint="#000000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:popupBackground="@color/g"
+            android:textColor="#000000" />
+
+
+        <!-- Security Answer input -->
+        <EditText
+            android:id="@+id/signup_security_answer"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/lavender_border"
+            android:backgroundTint="#27000000"
+
+            android:backgroundTintMode="src_over"
+            android:drawableLeft="@drawable/baseline_add_comment_24"
+            android:drawablePadding="16dp"
+            android:hint="Security Answer"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"
+            android:textColor="#FFFFFF" />
+
 
         <!-- Sign Up button -->
         <Button

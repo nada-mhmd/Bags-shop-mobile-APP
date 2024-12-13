@@ -1,6 +1,7 @@
 package com.example.nnnn;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -137,14 +138,19 @@ public class User extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_logout) {
-            // Handle the logout action
-            Intent intent = new Intent(User.this, LoginActivity.class);
-            startActivity(intent);
-            finish(); // Close the current activity
-            return true;
+
+                SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear(); // Clear all saved data
+
+                Intent intent = new Intent(User.this, LoginActivity.class);
+                startActivity(intent);
+                finish(); // Close current activity
+
         }
         if (id == R.id.action_Cart) {
             Intent intent = new Intent(User.this, CartActivity.class);
+
             startActivity(intent);
             return true;
         }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bag1"
-    android:backgroundTint="#91000000"
+    android:backgroundTint="#27000000"
     android:backgroundTintMode="src_over"
     tools:context=".LoginActivity">
 
@@ -28,6 +28,8 @@
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/lavender_border"
+            android:backgroundTint="#27000000"
+            android:backgroundTintMode="src_over"
             android:drawableLeft="@drawable/baseline_email_24"
             android:drawablePadding="16dp"
             android:hint="Email"
@@ -36,7 +38,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
-            android:textColor="#3E3E3E" />
+            android:textColor="#FFFFFF" />
 
         <!-- Password Input Field -->
         <EditText
@@ -45,6 +47,8 @@
             android:layout_height="60dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/lavender_border"
+            android:backgroundTint="#27000000"
+            android:backgroundTintMode="src_over"
             android:drawableLeft="@drawable/baseline_lock_24"
             android:drawablePadding="16dp"
             android:hint="Password"
@@ -53,7 +57,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
-            android:textColor="#3E3E3E" />
+            android:textColor="#FFFFFF" />
 
         <!-- Remember Me Checkbox -->
         <CheckBox

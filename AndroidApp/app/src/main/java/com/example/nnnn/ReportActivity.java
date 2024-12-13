@@ -13,18 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ReportActivity extends AppCompatActivity {
 
-    TextView reportTextView;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
-
-        reportTextView = findViewById(R.id.reportTextView);
-
-        // Get the report data from the intent
-        String report = getIntent().getStringExtra("report");
-        reportTextView.setText(report); // Set the report content
-    }
 }
 

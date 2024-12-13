@@ -2,4 +2,12 @@
     <string name="app_name">Bags Shop</string>
     <string name="delete_icon">delete</string>
     <string name="edit_icon">edit</string>
+    <string-array name="security_questions">
+        <item>Select a security question</item>
+        <item>What is your pets name?</item>
+        <item>What is your mothers maiden name?</item>
+        <item>What was the name of your first school?</item>
+        <item>What is your favorite color?</item>
+    </string-array>
+
 </resources>
