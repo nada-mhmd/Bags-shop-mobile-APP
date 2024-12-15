@@ -2,6 +2,7 @@ package com.example.nnnn;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -123,6 +124,10 @@ public class CartActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_logout) {
+            SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear(); // Clear all saved data
+            editor.apply();
             // Handle the logout action
             Intent intent = new Intent(CartActivity.this, LoginActivity.class);
             startActivity(intent);

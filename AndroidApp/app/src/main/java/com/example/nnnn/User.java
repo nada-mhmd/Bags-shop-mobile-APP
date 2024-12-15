@@ -139,9 +139,10 @@ public class User extends AppCompatActivity {
 
         if (id == R.id.action_logout) {
 
-                SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.clear(); // Clear all saved data
+            SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear(); // Clear all saved data
+            editor.apply();
 
                 Intent intent = new Intent(User.this, LoginActivity.class);
                 startActivity(intent);
