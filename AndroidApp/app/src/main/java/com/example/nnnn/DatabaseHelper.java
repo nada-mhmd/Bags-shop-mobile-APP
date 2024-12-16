@@ -123,4 +123,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return rowsAffected > 0;
     }
 
+
+    public Cursor getAllEmails() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT email FROM users", null);
+    }
+
 }

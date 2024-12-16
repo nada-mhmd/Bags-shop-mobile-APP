@@ -2,6 +2,7 @@ package com.example.nnnn;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -29,7 +30,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class AdminActivity extends AppCompatActivity {
 
     EditText edtName, edtPrice, edtCategory, edtQuantity;
-    Button btnChoose, btnAdd, btnList, btnLog, btnGenerateReport;
+    Button btnChoose, btnAdd, btnList, btnLog, btnGenerateReport , btnlogout;
     ImageView imageView;
     final int REQUEST_CODE_GALLERY = 999;
     public static SQLiteHelper sqLiteHelper;
@@ -48,6 +49,7 @@ public class AdminActivity extends AppCompatActivity {
         btnList = findViewById(R.id.btnList);
         btnGenerateReport = findViewById(R.id.btnGenerateReport);
         imageView = findViewById(R.id.imageView);
+        btnlogout = findViewById(R.id.btnGenerateReport2);
 
         sqLiteHelper = new SQLiteHelper(this, "FoodDB.sqlite", null, 1);
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS FOOD(Id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, price VARCHAR, category VARCHAR, quantity INTEGER, image BLOB)");
@@ -106,6 +108,21 @@ public class AdminActivity extends AppCompatActivity {
                 generateReport();
             }
         });
+
+        btnlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear(); // Clear all saved data
+                editor.apply();
+
+                Intent intent = new Intent(AdminActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+
+        });
     }
 
     private void generateReport() {
@@ -135,5 +152,11 @@ public class AdminActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        finishAffinity();
     }
 }

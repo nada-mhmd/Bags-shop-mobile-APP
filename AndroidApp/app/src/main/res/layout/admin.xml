@@ -113,6 +113,20 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
+            app:cornerRadius="30dp" />
+
+        <Button
+            android:id="@+id/btnGenerateReport2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/orange"
+            android:elevation="4dp"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             app:cornerRadius="30dp" /> <!-- توسيط الزر -->
 
     </LinearLayout>

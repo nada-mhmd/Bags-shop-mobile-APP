@@ -173,4 +173,11 @@ public class User extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+
+        finishAffinity();
+    }
+
 }
